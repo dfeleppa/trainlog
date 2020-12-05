@@ -1,0 +1,21 @@
+<h1>Welcome to TRAINlog</h1>
+  
+<h3> Login Here </h3>
+
+<% if flash[:message]%>
+  <%= flash[:message] %>
+<% end %>
+
+<%= form_for :user do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+    <%= f.submit "Login" %>
+<% end %>
+
+<p> New user? </p>
+<%= link_to "Sign Up", signup_path  %>

@@ -1,4 +1,4 @@
-class CoachesController < ApplicationController
+class AthletesController < ApplicationController
     def athletes
         self.athletes = self.athlete_id.all
     end

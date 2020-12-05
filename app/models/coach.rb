@@ -1,3 +1,5 @@
-class Coach < ApplicationRecord
-    has_many :users
+class Athlete < ApplicationRecord
+    belongs_to :user
+    has_many :posts
+    has_many :workouts, through: :posts
 end

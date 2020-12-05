@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :redirect_if_not_logged_in
+    # before_action :redirect_if_not_logged_in
 
     helper_method :current_user, :logged_in?, :is_coach?
   
@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
     def is_coach?
         if current_user.coach
+        end
     end
 
 end
