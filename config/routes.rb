@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+
+  get '/athlete' => 'athletes#new'
+  post 'athlete' => 'athlete#create'
   
   resources :athletes
   resources :users
