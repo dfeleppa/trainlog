@@ -1,0 +1,11 @@
+<h1><%= current_user.first_name %>'s Entries </h1>
+
+<%= link_to 'New Entry', new_entry_path, class:'button'%>
+
+<% current_user.entries.each do |entry| %>
+    <div>
+        <p> <%= link_to entry.name, entry_path(entry) %> </p>
+        <p> <%= entry.notes %> </p>
+        <p> <%= entry.status %> </p>
+    </div><br>
+<% end %>

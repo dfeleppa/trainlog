@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
     # before_action :redirect_if_not_logged_in
-
-    helper_method :current_user, :logged_in?, :is_coach?
+    add_flash_types :info, :error, :warning
+    helper_method :current_user, :logged_in?, :coach?, :admin?
+   
   
   
     private
@@ -15,12 +16,16 @@ class ApplicationController < ActionController::Base
     end
   
     def redirect_if_not_logged_in
-      redirect_to login_path if !logged_in?
+      redirect_to new_session_path if !logged_in?
     end
 
-    def is_coach?
-        if current_user.coach
+    def coach?
+        if current_user.coach == 1
         end
+    end
+
+    def admin?
+      current_user.admin
     end
 
 end

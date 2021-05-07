@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-  root 'sessions#home'
+  root 'sessions#index'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show, :index]
+  resources :entries
+  resources :sections
+  resources :entries do
+    resources :sections
+  end
 
-  get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
-
-  get '/athlete' => 'athletes#new'
-  post 'athlete' => 'athlete#create'
-  
-  resources :athletes
-  resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

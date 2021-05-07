@@ -1,9 +1,0 @@
-<h1> Add Athlete To Your Team </h1>
-
-<%= form_for @athlete do |f| %>
-
-    <%= f.label :athlete, "Athlete Name" %>
-    <%= f.select :athlete, options_for_select([@users])
-
-        <%= f.submit "Add Athlete" %>
-<% end %>

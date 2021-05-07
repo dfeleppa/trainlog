@@ -1,0 +1,12 @@
+<h1>Welcome to TRAINlog</h1>
+
+<% if logged_in? %>
+
+  <p> Welcome back <%= current_user.first_name %>! Click <%= link_to 'here', user_path(current_user) %> to visit your Athlete Page. </p>
+<% else %>
+  <%= link_to 'Log In', new_session_path %>
+  <%= link_to 'Sign Up', new_user_path %>  
+<% end %>
+
+<h3> Application Welcome Page </h3>
+<p> This page will feature news and updates on the application itself </p>

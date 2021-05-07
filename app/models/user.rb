@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-    # belongs_to :coach
-    # has_many :workouts
-    # has_many :movements, through: :workouts
+    has_many :entries
+    has_many :sections, through: :entries
+   
     has_secure_password
     validates :email, presence: true, uniqueness: true
     validates :first_name, :last_name, presence: true

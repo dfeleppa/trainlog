@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html>
+  <title>Trainlog</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   <head>
-    <title>Trainlog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <% if logged_in? %>
-      <nav class='navbar'>
-        <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
-      </nav>
-    <% else %>
-      <%= link_to 'Log In', login_path %>
+  <body class='site-main'>
+    <div class='header'>
+      <div class='header-left'>
+        <h2> TRAINlog </h2>
+      </div>
+      <div class='header-center'
+        <% if logged_in? %>
+            <nav class='navbar'>
+            <%= link_to 'Entries', entries_path, class:'button'%>
+            </nav>
+          <% end %>
+      </div>
+      <div class='header-right'>
+          <% if logged_in? %>
+            <nav class='navbar'>
+              <%= link_to 'Logout', '/session', method: :delete, class:'button'%>
+            </nav>
+          <% else %>
+            <%= link_to 'Log In', new_session_path %>
+            <%= link_to 'Sign Up', new_user_path %>    
+          <% end %>
+      </div>
+      </div>
+    </div>
+    <div class='header-admin'>
+        <% if logged_in? %>
+          <% if admin? %>
+            <%= link_to 'Users(admin)', users_path, class:'button'%>
+          <% end %>
+        <% end %>
+    </div>
+   
+    <% flash.each do |name, msg| %>
+      <div class="alert-<%= name %>">
+        <%= msg %>
+      </div>
     <% end %>
+
     <div class='container'>
       <%= yield %>
     </div>
   </body>
 </html>
+

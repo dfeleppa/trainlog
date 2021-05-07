@@ -1,0 +1,14 @@
+<%= render "entry" %>
+<ol class="withroman">
+    <% @entry.sections.each do |section| %>
+        <li>
+            <p> <%= section.data %> </p>
+            Edit Delete
+        </li>
+    <% end %>
+</ol>
+<h1>Add Section:</h1>
+<%= form_for([@entry, @section]) do |f| %>
+    <%= f.text_field :data, :placeholder => "Enter a new item..." %>
+    <%= f.submit :style => "display: none" %>
+  <% end %> 
