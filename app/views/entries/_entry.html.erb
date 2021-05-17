@@ -1,3 +1,7 @@
-<p> <%= @entry.name %> </p>
+<h2> <%= @entry.name %> </h2>
+<i> Last updated by <%=@entry.user.first_name%> <%=@entry.user.last_name%> on <%= @entry.updated_at.strftime("%m/%d/%Y at %I:%M%p")  %> </i>
+<% if @entry.user == current_user %>
+<h4><%= link_to "Edit Entry", edit_entry_path(@entry)%></h4>
+<% end %>
 <p> <%= @entry.notes %> </p>
 <p> <%= @entry.status %> </p>

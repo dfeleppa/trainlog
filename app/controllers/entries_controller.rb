@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
     def index
         @entries = current_user.entries
+
     end
 
     def show
@@ -22,6 +23,14 @@ class EntriesController < ApplicationController
             render :new
         end
     end
+
+    def edit
+        @entry = Entry.find_by(id: params[:id])
+        if @entry.user
+            redirect_to entry_params(@entry)
+        else
+            render :new
+        end
 
     def update
         @entry = Entry.find_by(id: params[:id])

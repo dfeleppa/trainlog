@@ -2,7 +2,8 @@
 <ul>
 <% @users.each do |u| %>
   <li>
-    <%=  u.first_name %> <%=  u.last_name %>
+    <%= u.first_name %> <%=  u.last_name %> (<%= u.role %>)
+    
   </li><br>
 <% end %>
 </ul>

@@ -15,8 +15,9 @@
         <h2> TRAINlog </h2>
       </div>
       <div class='header-center'
-        <% if logged_in? %>
+          <% if logged_in? %>
             <nav class='navbar'>
+            <%= link_to 'Home', user_path(current_user.id), class:'button'%>
             <%= link_to 'Entries', entries_path, class:'button'%>
             </nav>
           <% end %>

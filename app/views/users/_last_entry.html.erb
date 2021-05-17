@@ -1,0 +1,5 @@
+<div class="last-entry">
+    <p><strong><%= link_to current_user.recent_entry.name, entry_path(@user.entries.count)%></strong></p>
+    <p><%= current_user.recent_entry.notes %></p>
+    <p><%= current_user.recent_entry.status %></p>
+</div>

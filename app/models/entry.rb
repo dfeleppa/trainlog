@@ -4,6 +4,8 @@ class Entry < ApplicationRecord
 
     validates :name, presence: true
     validates :status, inclusion: { in: %w(complete incomplete) }
+
+    default_scope {order(created_at: :desc)}
     # validates :name, uniqueness
     
     # def status
@@ -13,5 +15,6 @@ class Entry < ApplicationRecord
     #         @status = "incomplete"
     #     end
     # end
+
 
 end
