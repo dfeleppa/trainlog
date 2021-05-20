@@ -26,29 +26,31 @@ class EntriesController < ApplicationController
 
     def edit
         @entry = Entry.find_by(id: params[:id])
-        if @entry.user
+        if !@entry || @entry.user != current_user
             redirect_to entry_params(@entry)
-        else
-            render :new
         end
+    end
 
     def update
         @entry = Entry.find_by(id: params[:id])
         if @entry.update(entry_params)
-            redirect_to entry_params(@entry)
+            redirect_to entry_path(@entry)
         else
             render :new
         end
     end
     
     def destroy
-        entry.clear
+        @entry = Entry.find_by(id: params[:id])
+        if @entry
+            @entry.destroy
+        end
         redirect_to entries_path
     end
 
     private
 
-    def entry_params
+    def entry_params()
         params.require(:entry).permit(:name, :notes, :status)
     end
 end

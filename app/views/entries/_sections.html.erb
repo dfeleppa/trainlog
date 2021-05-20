@@ -1,0 +1,11 @@
+<ol class="withroman">
+    <% @entry.sections.each do |section| %>
+        <li>
+            <p> <%= section.data %> </p>
+            <% if @entry.user == current_user %>
+                <%= link_to "Edit", edit_section_path(section)%> | 
+                <%= link_to "Delete", section_path(section), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
+            <% end %>
+        </li>
+    <% end %>
+</ol>

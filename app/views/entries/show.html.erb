@@ -1,14 +1,5 @@
 <%= render "entry" %>
-<ol class="withroman">
-    <% @entry.sections.each do |section| %>
-        <li>
-            <p> <%= section.data %> </p>
-            Edit Delete
-        </li>
-    <% end %>
-</ol>
-<h1>Add Section:</h1>
-<%= form_for([@entry, @section]) do |f| %>
-    <%= f.text_field :data, :placeholder => "Enter a new item..." %>
-    <%= f.submit :style => "display: none" %>
-  <% end %> 
+<%= render "sections" %>
+<%= render "add_section" %>
+<br>
+<i> Last updated by <%=@entry.user.first_name%> <%=@entry.user.last_name%> on <%= @entry.updated_at.strftime("%m/%d/%Y at %I:%M%p")  %> </i>

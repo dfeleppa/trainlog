@@ -1,0 +1,5 @@
+<p><strong>Edit Section:</strong></p>
+<%= form_for([@entry, @section]) do |f| %>
+    <%= f.text_field :data, :placeholder => "Enter a new item...", size: '60' %>
+    <%= f.submit :style => "display: button" %>
+<% end %>

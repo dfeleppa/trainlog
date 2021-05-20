@@ -251,4 +251,28 @@
       background-color: gray;
     }
 
+    .entry-complete {
+      font-weight: bold;
+    }
+    .entry-incomplete {
+      font-style: italic;
+      color: red;
+    }
+
+    .entry-show {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .entry-show-left {
+      grid-column: 1;
+      
+    }
+    .entry-show-right {
+      grid-column: 2;
+      justify-self: right;
+      align-self: center;
+    }
+    .entry-notes{
+      font-style: italic;
+    }
   }
