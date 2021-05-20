@@ -17,8 +17,15 @@
       <div class='header-center'
           <% if logged_in? %>
             <nav class='navbar'>
-            <%= link_to 'Home', user_path(current_user.id), class:'button'%>
-            <%= link_to 'Entries', entries_path, class:'button'%>
+              <div>
+                <%= link_to 'Home', user_path(current_user.id), class:'button'%>
+              </div>
+              <div>
+                <%= link_to 'New Entry', new_entry_path, class:'button'%>
+              </div>  
+              <div>
+                <%= link_to 'Entries', entries_path, class:'button'%>
+              </div> 
             </nav>
           <% end %>
       </div>
