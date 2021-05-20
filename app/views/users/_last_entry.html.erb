@@ -1,5 +1,9 @@
 <div class="last-entry">
-    <p><strong><%= link_to current_user.recent_entry.name, entry_path(@user.recent_entry)%></strong></p>
-    <p><%= current_user.recent_entry.notes %></p>
-    <p><%= current_user.recent_entry.status %></p>
+    <% if recent_entry %>
+        <p><strong><%= link_to recent_entry.name, entry_path(recent_entry)%></strong></p>
+        <p><%= recent_entry.notes %></p>
+        <p><%= recent_entry.status %></p>
+    <% else %>
+        <p> No entries yet. <%= link_to 'Create', new_entry_path, class:'button'%> your first one! </p>
+    <% end %>
 </div>

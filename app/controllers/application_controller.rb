@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
     # before_action :redirect_if_not_logged_in
     add_flash_types :info, :error, :warning
-    helper_method :current_user, :logged_in?, :coach?, :admin?
+    helper_method :current_user, :logged_in?, :coach?, :admin?, :recent_entry
    
-  
-  
     private
   
     def current_user
@@ -26,6 +24,10 @@ class ApplicationController < ActionController::Base
 
     def admin?
       current_user.admin
+    end
+
+    def recent_entry
+      current_user.entries.first
     end
 
 end

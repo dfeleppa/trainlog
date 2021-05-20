@@ -14,9 +14,7 @@ class User < ApplicationRecord
         end
     end    
 
-    def recent_entry
-        self.entries.first
-    end
+    
     # def self.from_omniauth(auth)
     #       where(email: auth.info.email).first_or_initialize do |user|
     #         user.email = auth.info.email

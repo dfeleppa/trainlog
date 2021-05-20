@@ -1,12 +1,14 @@
-<h1> Welcome <%=@user.first_name%> <%=@user.last_name %>! </h1>
+<h1> Welcome <%=current_user.first_name%> <%=current_user.last_name %>! </h1>
 <p><strong>Athlete Profile:</strong></p>
 <ul>
-    <li><strong>Member since:</strong> <%=@user.created_at.strftime("%B %Y")%></li>
-    <li><strong>Training Entries:</strong> <%=@user.entries.count%></li>
+    <li><strong>Member since:</strong> <%=current_user.created_at.strftime("%B %Y")%></li>
+    <li><strong>Training Entries:</strong> <%=current_user.entries.count%></li>
 </ul>
 
 <h1> Recent Entry </h1>
 
 <%= render 'last_entry' %>
 <br>
-<%= link_to 'All Entries', entries_path, class:'button'%>
+<% if recent_entry %>
+    <%= link_to 'New Entry', new_entry_path, class:'button'%> | <%= link_to 'All Entries', entries_path, class:'button'%>
+<% end %>
